@@ -1,5 +1,6 @@
 package com.paule.banking_project;
 
+import com.paule.banking_project.exceptions.ObjectValidationException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -22,6 +23,7 @@ public class ObjectsValidator<T> {
                     map(ConstraintViolation::getMessage)
                     .collect(Collectors.toSet());
             /// todo raise on exception
+            throw new ObjectValidationException(errorMessages, objectToValidate.getClass().getName());
         }
     }
 }
