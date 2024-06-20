@@ -1,6 +1,7 @@
 package com.paule.banking_project.dto;
 
 import com.paule.banking_project.models.User;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,12 +15,26 @@ public class UserDto {
 
     private Integer id;
 
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private String firstname;
 
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private String lastname;
 
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @Email
     private String email;
 
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @Size(min = 8, max = 16)
     private String password;
 
     public static UserDto fromEntity(User user) {
