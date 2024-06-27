@@ -6,20 +6,18 @@ import com.paule.banking_project.repositories.AddressRepository;
 import com.paule.banking_project.services.AddressService;
 import com.paule.banking_project.validators.ObjectsValidator;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class AddressServiceImpl implements AddressService {
 
-    private AddressRepository addressRepository;
-    private final ObjectsValidator objectsValidator;
-
-    public AddressServiceImpl(ObjectsValidator objectsValidator) {
-        this.objectsValidator = objectsValidator;
-    }
+    private final AddressRepository addressRepository;
+    private ObjectsValidator<AddressDto> objectsValidator;
 
     @Override
     public Integer save(AddressDto addressDto) {

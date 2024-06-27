@@ -18,7 +18,7 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
-    private final ObjectsValidator<AccountDto> objectsValidator;
+    private ObjectsValidator<AccountDto> objectsValidator;
 
     @Override
     public Integer save(AccountDto accountDto) {

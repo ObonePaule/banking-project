@@ -2,6 +2,7 @@ package com.paule.banking_project.dto;
 
 import com.paule.banking_project.models.Transaction;
 import com.paule.banking_project.models.TransactionType;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,6 +18,7 @@ public class TransactionDto {
 
     private Integer id;
 
+    @Positive
     private BigDecimal amount;
 
     private TransactionType type;

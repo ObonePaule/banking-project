@@ -1,6 +1,7 @@
 package com.paule.banking_project.dto;
 
 import com.paule.banking_project.models.Contact;
+import com.paule.banking_project.models.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,14 +36,16 @@ public class ContactDto {
                 .build();
     }
 
-    public static ContactDto toContact(ContactDto contactDto) {
-        return ContactDto.builder()
+    public static Contact toContact(ContactDto contactDto) {
+        return Contact.builder()
                 .id(contactDto.getId())
                 .firstname(contactDto.getFirstname())
                 .lastname(contactDto.getLastname())
                 .email(contactDto.getEmail())
                 .iban(contactDto.getIban())
-                .userId(contactDto.getUserId())
+                .user(User.builder()
+                        .id(contactDto.getId())
+                        .build())
                 .build();
     }
 }
